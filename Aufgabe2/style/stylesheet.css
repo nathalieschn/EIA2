@@ -1,0 +1,31 @@
+#Ablagestapel {
+    border-style: solid;
+    width: 200px;
+    height: 270px;
+    font-size: 25px;
+    background-color: lightpink;
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+}
+
+#Nachziehstapel {
+    border-style: solid;
+    width: 200px;
+    height: 270px;
+    font-size: 25px;
+    background-color: lightgrey;
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+}
+
+.Handkarten {
+    border-style: solid;
+    width: 200px;
+    height: 270px;
+    font-size: 25px;
+    background-color: rgb(115, 121, 173);
+    margin: 5px;
+    padding: 5px;
+}
