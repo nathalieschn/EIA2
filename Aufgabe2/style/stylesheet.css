@@ -20,7 +20,7 @@
     display: inline-block;
 }
 
-.Handkarten {
+#Handkarten > div {
     border-style: solid;
     width: 200px;
     height: 270px;
