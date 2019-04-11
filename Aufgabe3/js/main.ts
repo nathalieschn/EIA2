@@ -51,7 +51,7 @@ function karteErstellen () {
         prodElement.innerHTML = karte;
         document.getElementById("Handkarten").appendChild(prodElement);
     }
-    else if (i>=24 && i<=32){
+    else if (i>=24 && i<24){
         zeichen = "Pik" + werte[i%8];
         alleKarten.splice(0,0,werte[i%8])
         let prodElement = document.createElement('div');
@@ -65,12 +65,14 @@ function karteErstellen () {
 
 function kartenVerteilen () {
     let handkarten:string [] = [];
-    for (let x = parseFloat(anzahl); handkarten.length <= x; x++) {
+    for (let x = parseFloat(anzahl); handkarten.length <= x-1; x++) {
         let y:number = 0;
             y = Math.floor((Math.random()*alleKarten.length));
+            y= y - 1; 
             handkarten.push(alleKarten[y]);            
             let prodElement = document.createElement('div');
-            let karte: string= `<p class="${alleKarten[y]}">${alleKarten[y]}</p>`
+            let karte: string= `
+            <p class="${alleKarten[y]}">${alleKarten[y]}</p>            `
             prodElement.innerHTML = karte;
             document.getElementById("Handkarten").appendChild(prodElement);            
             alleKarten.splice(y, 1);
@@ -80,10 +82,12 @@ function kartenVerteilen () {
 
 
 function erstelleNachziehstapel () {
-        for ( let z : number = 0; z <= 32; z++) {
+        for ( let z : number = 0; z < alleKarten.length; z++) {
             let prodElement = document.createElement('div');
-                document.getElementById("Nachziehstapel").appendChild(prodElement);
-                let karte: string= `<p class="${alleKarten[z]}">${alleKarten[z]}</p>`
+                document.getElementById("Spielkarten").appendChild(prodElement);
+                let karte: string= `
+                <p class="${alleKarten[z]}">${alleKarten[z]}</p>
+                `
                 prodElement.innerHTML = karte;
                 
         }
