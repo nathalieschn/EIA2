@@ -58,7 +58,7 @@ var A03;
         }
     }
     function sortiereKarte() {
-        //document.addEventListener ("click",init);
+        //document.addEventListener ("click",init); bla
     }
     erstelleNachziehstapel();
     karteErstellen();

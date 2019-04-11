@@ -74,7 +74,7 @@ function erstelleNachziehstapel () {
 }    
 
 function sortiereKarte () {
-    //document.addEventListener ("click",init);
+    //document.addEventListener ("click",init); bla
 }
     
 
