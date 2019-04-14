@@ -1,8 +1,8 @@
 /*
 Aufgabe: <Aufgabe 3 Mau Mau>
 Name: <Nathalie Schneider>
-Matrikel: <>
-Datum: <11.04.2019>
+Matrikel: <260564>
+Datum: <14.04.2019>
 	
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
@@ -14,6 +14,8 @@ namespace A03 {
     let werte: string[] = [" 7", " 8", " 9", " 10", " Bube", " Dame", " König", " As"]
     let zeichen: string;
     let y: number;
+
+    let randomCard = Math.floor((Math.random()*alleKarten.length));
 
 
 let anzahl: string
@@ -73,12 +75,65 @@ function erstelleNachziehstapel () {
     }
 }    
 
-function sortiereKarte () {
-    //document.addEventListener ("click",init);
+function eventsHinzufügen(){
+    document.getElementById("zieheKarte").addEventListener('click', zieheKarte);
+    document.addEventListener("keydown", event => { 
+        console.log(event);
+        if (event.keyCode == 32){
+            zieheKarte();
+            return;
+        }
+        else {
+            return;
+        }
+    });
+
+function zieheKarte (){
+    if (alleKarten.length >= 0){
+        alert ("Alle Karten sind aufgebraucht");
+    }
+    else if (number = y ; x < y) {
+
+        handkarten.push(alleKarten[randomCard]);
+        let prodElement = document.createElement('div');
+            let karte: string= `<p class="${alleKarten[randomCard]}">${alleKarten[randomCard]}</p>`
+            prodElement.innerHTML = karte;
+            document.getElementById("Handkarten").appendChild(prodElement);            
+            alleKarten.splice(randomCard, 1);
+    }
 }
+
+document.getElementById("Sortierbutton").addEventListener("click", sortiereKarte);
+function sortiereKarte () {
+
+}
+
+document.getElementById("Handkarten").addEventListener("click", karteSpielen);
+
+function karteSpielen(): void {
+    let kartenID: HTMLElement = <HTMLElement>event.target;
+    let ablegen: string[] = [];
+    for (let n: number = 0; n < handkarten.length; n++) {
+        if (kartenID.getAttribute("id") == handkarten[n]) {
+            ablegen.push(handkarten[n]);
+
+            let prodElement = document.createElement('div');
+            document.getElementById("Ablagestapel").appendChild(prodElement)
+
+            let karte: string = `<p class="${alleKarten[randomCard]}">${alleKarten[randomCard]}</p>`
+            prodElement.innerHTML = karte;
+            handkarten.splice(n, 1);
+            document.getElementById("Handkarten").innerHTML = ""; 
+            for (let i:number = 0; i < handkarten.length; i++) {
+            kartenVerteilen();}
+        }
+    }
+}
+
+
     
 
 erstelleNachziehstapel();
 karteErstellen();
 kartenVerteilen();
-}
+
