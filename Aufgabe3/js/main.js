@@ -58,59 +58,53 @@ var A03;
             prodElement.innerHTML = karte;
         }
     }
-    function eventsHinzufügen() {
-        document.getElementById("zieheKarte").addEventListener('click', zieheKarte);
-        document.addEventListener("keydown", event => {
-            console.log(event);
-            if (event.keyCode == 32) {
-                zieheKarte();
-                return;
-            }
-            else {
-                return;
-            }
-        });
-        function zieheKarte() {
-            if (alleKarten.length >= 0) {
-                alert("Alle Karten sind aufgebraucht");
-            }
-            else if (number = y)
-                ;
-            x < y;
-            {
-                handkarten.push(alleKarten[randomCard]);
+    document.addEventListener("keydown", event => {
+        console.log(event);
+        for (event.keyCode == 32;;) {
+            zieheKarte();
+            return;
+        }
+    });
+    function zieheKarte() {
+        if (alleKarten.length >= 0) {
+            alert("Alle Karten sind aufgebraucht");
+        }
+        else if (number = y)
+            ;
+        x < y;
+        {
+            handkarten.push(alleKarten[randomCard]);
+            let prodElement = document.createElement('div');
+            let karte = `<p class="${alleKarten[randomCard]}">${alleKarten[randomCard]}</p>`;
+            prodElement.innerHTML = karte;
+            document.getElementById("Handkarten").appendChild(prodElement);
+            alleKarten.splice(randomCard, 1);
+        }
+    }
+    document.getElementById("Sortierbutton").addEventListener("click", sortiereKarte);
+    function sortiereKarte() {
+    }
+    document.getElementById("Handkarten").addEventListener("click", karteSpielen);
+    function karteSpielen() {
+        let kartenID = event.target;
+        let ablegen = [];
+        for (let n = 0; n < handkarten.length; n++) {
+            if (kartenID.getAttribute("id") == handkarten[n]) {
+                ablegen.push(handkarten[n]);
                 let prodElement = document.createElement('div');
+                document.getElementById("Ablagestapel").appendChild(prodElement);
                 let karte = `<p class="${alleKarten[randomCard]}">${alleKarten[randomCard]}</p>`;
                 prodElement.innerHTML = karte;
-                document.getElementById("Handkarten").appendChild(prodElement);
-                alleKarten.splice(randomCard, 1);
-            }
-        }
-        document.getElementById("Sortierbutton").addEventListener("click", sortiereKarte);
-        function sortiereKarte() {
-        }
-        document.getElementById("Handkarten").addEventListener("click", karteSpielen);
-        function karteSpielen() {
-            let kartenID = event.target;
-            let ablegen = [];
-            for (let n = 0; n < handkarten.length; n++) {
-                if (kartenID.getAttribute("id") == handkarten[n]) {
-                    ablegen.push(handkarten[n]);
-                    let prodElement = document.createElement('div');
-                    document.getElementById("Ablagestapel").appendChild(prodElement);
-                    let karte = `<p class="${alleKarten[randomCard]}">${alleKarten[randomCard]}</p>`;
-                    prodElement.innerHTML = karte;
-                    handkarten.splice(n, 1);
-                    document.getElementById("Handkarten").innerHTML = "";
-                    for (let i = 0; i < handkarten.length; i++) {
-                        kartenVerteilen();
-                    }
+                handkarten.splice(n, 1);
+                document.getElementById("Handkarten").innerHTML = "";
+                for (let i = 0; i < handkarten.length; i++) {
+                    kartenVerteilen();
                 }
             }
         }
-        erstelleNachziehstapel();
-        karteErstellen();
-        kartenVerteilen();
     }
+    erstelleNachziehstapel();
+    karteErstellen();
+    kartenVerteilen();
 })(A03 || (A03 = {}));
 //# sourceMappingURL=main.js.map

@@ -75,18 +75,13 @@ function erstelleNachziehstapel () {
     }
 }    
 
-function eventsHinzufügen(){
-    document.getElementById("zieheKarte").addEventListener('click', zieheKarte);
-    document.addEventListener("keydown", event => { 
+document.addEventListener("keydown", event => { 
         console.log(event);
-        if (event.keyCode == 32){
+        for (event.keyCode == 32){
             zieheKarte();
             return;
         }
-        else {
-            return;
-        }
-    });
+    })
 
 function zieheKarte (){
     if (alleKarten.length >= 0){
