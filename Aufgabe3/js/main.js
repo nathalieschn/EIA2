@@ -58,6 +58,7 @@ var A03;
             prodElement.innerHTML = karte;
         }
     }
+    document.getElementById("Nachziestapel").addEventListener("click", zieheKarte);
     document.addEventListener("keydown", event => {
         console.log(event);
         for (event.keyCode == 32;;) {

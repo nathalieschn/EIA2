@@ -74,7 +74,7 @@ function erstelleNachziehstapel () {
                 
     }
 }    
-
+document.getElementById("Nachziestapel").addEventListener("click", zieheKarte);
 document.addEventListener("keydown", event => { 
         console.log(event);
         for (event.keyCode == 32){
