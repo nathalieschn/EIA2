@@ -124,8 +124,6 @@ function karteSpielen(): void {
         }
     }
 }
-
-
     
 
 erstelleNachziehstapel();
