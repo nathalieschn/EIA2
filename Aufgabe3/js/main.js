@@ -58,6 +58,12 @@ var A03;
             prodElement.innerHTML = karte;
         }
     }
+    document.addEventListener('DOMContentLoaded', init);
+    document.getElementById("Sortierbutton").addEventListener("click", sortiereKarten);
+    function sortiereKarten() {
+        handkarten.sort();
+        document.getElementById("Handkarten").innerHTML = "";
+    }
     document.getElementById("Nachziestapel").addEventListener("click", zieheKarte);
     document.addEventListener("keydown", event => {
         console.log(event);
@@ -67,24 +73,22 @@ var A03;
         }
     });
     function zieheKarte() {
-        if (alleKarten.length >= 0) {
+        if (handkarten.length >= 0) {
             alert("Alle Karten sind aufgebraucht");
         }
-        else if (number = y)
-            ;
-        x < y;
-        {
-            handkarten.push(alleKarten[randomCard]);
-            let prodElement = document.createElement('div');
-            let karte = `<p class="${alleKarten[randomCard]}">${alleKarten[randomCard]}</p>`;
-            prodElement.innerHTML = karte;
-            document.getElementById("Handkarten").appendChild(prodElement);
-            alleKarten.splice(randomCard, 1);
-        }
+        else
+            () => {
+                handkarten.push(alleKarten[randomCard]);
+                let prodElement = document.createElement('div');
+                let karte = `<p class="${alleKarten[randomCard]}">${alleKarten[randomCard]}</p>`;
+                prodElement.innerHTML = karte;
+                document.getElementById("Handkarten").appendChild(prodElement);
+                alleKarten.splice(randomCard, 1);
+            };
     }
-    document.getElementById("Sortierbutton").addEventListener("click", sortiereKarte);
-    function sortiereKarte() {
-    }
+    erstelleNachziehstapel();
+    karteErstellen();
+    kartenVerteilen();
     document.getElementById("Handkarten").addEventListener("click", karteSpielen);
     function karteSpielen() {
         let kartenID = event.target;
@@ -104,8 +108,9 @@ var A03;
             }
         }
     }
-    erstelleNachziehstapel();
-    karteErstellen();
-    kartenVerteilen();
+    function init() {
+        zieheKarte();
+        karteSpielen();
+    }
 })(A03 || (A03 = {}));
 //# sourceMappingURL=main.js.map

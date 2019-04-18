@@ -8,6 +8,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 namespace A03 {
 
+
+
     let alleKarten: string [] = [];
     let handkarten: string[] = [];
     
@@ -74,6 +76,14 @@ function erstelleNachziehstapel () {
                 
     }
 }    
+
+document.addEventListener('DOMContentLoaded', init);
+document.getElementById("Sortierbutton").addEventListener("click", sortiereKarten);
+function sortiereKarten(): void {
+    handkarten.sort();
+    document.getElementById("Handkarten").innerHTML = ""; 
+}
+
 document.getElementById("Nachziestapel").addEventListener("click", zieheKarte);
 document.addEventListener("keydown", event => { 
         console.log(event);
@@ -84,11 +94,10 @@ document.addEventListener("keydown", event => {
     })
 
 function zieheKarte (){
-    if (alleKarten.length >= 0){
+    if (handkarten.length >= 0){
         alert ("Alle Karten sind aufgebraucht");
     }
-    else if (number = y ; x < y) {
-
+    else () {
         handkarten.push(alleKarten[randomCard]);
         let prodElement = document.createElement('div');
             let karte: string= `<p class="${alleKarten[randomCard]}">${alleKarten[randomCard]}</p>`
@@ -98,10 +107,11 @@ function zieheKarte (){
     }
 }
 
-document.getElementById("Sortierbutton").addEventListener("click", sortiereKarte);
-function sortiereKarte () {
 
-}
+erstelleNachziehstapel();
+karteErstellen();
+kartenVerteilen();
+
 
 document.getElementById("Handkarten").addEventListener("click", karteSpielen);
 
@@ -124,9 +134,11 @@ function karteSpielen(): void {
         }
     }
 }
-    
 
-erstelleNachziehstapel();
-karteErstellen();
-kartenVerteilen();
+function init() {
+    zieheKarte()
+    karteSpielen()
+}
+    
+}
 
